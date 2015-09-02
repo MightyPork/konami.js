@@ -1,3 +1,5 @@
+// https://github.com/MightyPork/konami.js | MIT License
+
 (function (window) {
     "use strict";
 
