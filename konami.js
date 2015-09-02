@@ -1,33 +1,37 @@
-// https://github.com/MightyPork/konami.js | MIT License
+/*! konami.js
+https://github.com/MightyPork/konami.js
+(c) MightyPork 2015, MIT License
+Usage: konami(callback);
+*/
 
 (function (window) {
-    "use strict";
+	"use strict";
 
-    var d = window.document;
-    var keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-    var progress = 0;
+	var d = window.document;
+	var keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+	var progress = 0;
 
-    window.konami = function (h) {
-        var listener = function (e) {
-            if (e.keyCode == keys[progress]) {
-                if (++progress == keys.length) {
-                    console.log('コナミ');
+	window.konami = function (h) {
+		var listener = function (e) {
+			if (e.keyCode == keys[progress]) {
+				if (++progress == keys.length) {
+					console.log('コナミ');
 
-                    if (typeof h == 'function') {
-                        h();
-                    }
+					if (typeof h == 'function') {
+						h();
+					}
 
-                    progress = 0;
-                }
-            } else {
-                progress = 0;
-            }
-        };
+					progress = 0;
+				}
+			} else {
+				progress = 0;
+			}
+		};
 
-        if (d.addEventListener) {
-            d.addEventListener('keyup', listener);
-        } else {
-            d.onkeyup = listener;
-        }
-    };
+		if (d.addEventListener) {
+			d.addEventListener('keyup', listener);
+		} else {
+			d.onkeyup = listener;
+		}
+	};
 })(window);

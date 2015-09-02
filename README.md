@@ -16,3 +16,4 @@ It's super simple:
 ```
 
 Tested to work in Chrome and Firefox.
+
